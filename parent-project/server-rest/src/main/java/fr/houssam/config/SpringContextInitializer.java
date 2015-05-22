@@ -7,8 +7,6 @@ import javax.servlet.ServletRegistration.Dynamic;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.web.WebApplicationInitializer;
-import org.springframework.web.context.ContextLoaderListener;
-import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.servlet.DispatcherServlet;
 
@@ -23,7 +21,8 @@ public class SpringContextInitializer implements WebApplicationInitializer {
 //            servletContext.addListener(new ContextLoaderListener(rootAppContext));
 //        }
 		AnnotationConfigWebApplicationContext ctx = new AnnotationConfigWebApplicationContext();  
-        ctx.register(SpringConfig.class);  
+        ctx.register(RestConfig.class);
+        ctx.register(SpringConfig.class);
         ctx.setServletContext(servletContext);    
         Dynamic servlet = servletContext.addServlet("dispatcher", new DispatcherServlet(ctx));  
         servlet.addMapping("/");  
