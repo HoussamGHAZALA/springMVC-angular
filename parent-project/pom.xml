@@ -16,9 +16,8 @@
 
 	<modules>
 		<module>data-access-layer</module>
-    	<module>jersey-rest</module>
     	<module>angular-webapp</module>
-    <module>server-rest</module>
+    	<module>server-rest</module>
   </modules>
 
 	<build>
