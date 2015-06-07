@@ -6,7 +6,7 @@ angular.module('angularWebappApp').factory('mainFactory', ['$resource','$http','
 //	    }
 //	  });
 	var service = {
-        sayHello : sayHello,
+		sayHelloInConsole : sayHelloInConsole,
         personBy : personBy
     }
 	
@@ -15,8 +15,8 @@ angular.module('angularWebappApp').factory('mainFactory', ['$resource','$http','
 	
 	
 	//////////
-	function sayHello(text){
-        alert("Factory says \"Hello " + text + "\"");
+	function sayHelloInConsole(text){
+        console.log("Factory says \"Hello " + text + "\"");
     }
 	
 	function personBy(id){

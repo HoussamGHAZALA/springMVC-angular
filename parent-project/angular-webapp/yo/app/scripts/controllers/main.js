@@ -9,7 +9,7 @@
  */
 angular.module('angularWebappApp').controller('MainCtrl', ['$scope','$http','mainFactory', function($scope, $http, mainFactory) {
     
-    mainFactory.sayHello('Houssam');
+    mainFactory.sayHelloInConsole('Houssam');
     
     mainFactory.personBy(1).success(successPerson);
     function successPerson(data){
