@@ -27,6 +27,7 @@ public class PersonDao implements IPersonDao{
 
 	@Override
 	public Person by(Long id) {
-		return personRepository.findOne(id);
+		//return personRepository.findOne(id);
+		return new Person(id, "GHAZALA", "Houssam");
 	}
 }
