@@ -1,6 +1,11 @@
-<person-directive person="person"></person-directive>
-
-<div class="jumbotron">
+<div ng-controller="MainCtrl">
+	<person-directive person="person">
+		<div>{{header}}</div>
+    	<div>{{person.nom}} {{person.prenom}}</div>
+	</person-directive>
+</div>
+  
+  <div class="jumbotron">
   <h1>'Allo, 'Allo!</h1>
   <p class="lead">
     <img src="images/yeoman.png" alt="I'm Yeoman"><br>

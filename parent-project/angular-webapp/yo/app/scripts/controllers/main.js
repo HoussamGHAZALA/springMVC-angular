@@ -9,11 +9,17 @@
  */
 angular.module('angularWebappApp').controller('MainCtrl', ['$scope','$http','mainFactory', function($scope, $http, mainFactory) {
     
-    mainFactory.sayHelloInConsole('Houssam');
-    
-    mainFactory.personBy(1).success(successPerson);
-    function successPerson(data){
-    	$scope.person = data;
+    activate();
+    function activate(){
+    	var person = {};
+    	$scope.header = "Hello Form Controller to : ";
+    	mainFactory.sayHelloInConsole('Houssam');
+        mainFactory.personBy(1).success(successPerson);
+        function successPerson(data){
+        	person = data;
+        }
+        $scope.person = person;
+
     }
   }
 ]);
