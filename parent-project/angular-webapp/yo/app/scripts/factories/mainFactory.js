@@ -1,10 +1,9 @@
-angular.module('angularWebappApp').factory('mainFactory', ['$resource','$http','urlConfig', function($resource, $http, urlConfig) {
-
-//	return $resource('http://localhost:8080/jersey-rest/api/resource/person/:id', { id: '@_id' }, {
-//	    get: {
-//	      method: 'GET'
-//	    }
-//	  });
+angular.module('angularWebappApp').factory('mainFactory', MainFactory);
+	
+	MainFactory.$inject = ['$resource','$http','urlConfig'];
+    
+	function MainFactory($resource, $http, urlConfig){
+		
 	var service = {
 		sayHelloInConsole : sayHelloInConsole,
         personBy : personBy
@@ -12,9 +11,6 @@ angular.module('angularWebappApp').factory('mainFactory', ['$resource','$http','
 	
 	return service;
 
-	
-	
-	//////////
 	function sayHelloInConsole(text){
         console.log("Factory says \"Hello " + text + "\"");
     }
@@ -27,6 +23,5 @@ angular.module('angularWebappApp').factory('mainFactory', ['$resource','$http','
             	id: id
             }
         });
+	  }
 	}
-	
-}]);

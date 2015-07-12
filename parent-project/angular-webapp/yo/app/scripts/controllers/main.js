@@ -1,25 +1,22 @@
 'use strict';
+angular.module('angularWebappApp').controller('MainCtrl', MainCtrl);
 
-/**
- * @ngdoc function
- * @name angularWebappApp.controller:MainCtrl
- * @description
- * # MainCtrl
- * Controller of the angularWebappApp
- */
-angular.module('angularWebappApp').controller('MainCtrl', ['$scope','$http','mainFactory', function($scope, $http, mainFactory) {
+	MainCtrl.$inject = ['$scope','$http','mainFactory'];
     
-    activate();
-    function activate(){
-    	var person = {};
-    	$scope.header = "Hello Form Controller to : ";
-    	mainFactory.sayHelloInConsole('Houssam');
-        mainFactory.personBy(1).success(successPerson);
-        function successPerson(data){
-        	person = data;
-        }
-        $scope.person = person;
+	function MainCtrl(){
+    	activate();
+    	function activate(){
+        	$scope.header = "Hello Form Controller to : ";
+        	
+        	mainFactory.sayHelloInConsole('Houssam');
 
+        	mainFactory.personBy(1)
+        	           .success(function(data) {
+        				   console.log("data  :  ", data);
+        				   person = data;})
+        			   .failure(function(response){
+        				   console.log("Error calling person request !!!")
+        			   });
+            $scope.person = person;
+        }
     }
-  }
-]);
